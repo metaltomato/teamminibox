@@ -1,0 +1,206 @@
+#movie_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 375px;
+    background-color: #fff;
+    color: #666;
+    box-sizing: border-box;
+}
+
+.movieContainer{
+    margin: 20px 0px;
+}
+
+.showcase{
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    padding: 5px 10px;
+}
+
+.movieContainer select{
+    margin: 10px;
+    padding: 5px 15px 5px 15px;
+    border-radius: 7px;
+    appearance: none;
+    border: 0;
+}
+
+.movieContainer select option{
+
+    text-align: left;
+}
+
+li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.small{
+    color: #777;
+    margin-left: 2px;
+}
+
+.showcase .seat:hover{
+    cursor: default;
+    scale: 1;
+}
+
+.showcase .selectedSeat:hover{
+    cursor: default;
+    scale: 1;
+}
+
+.screen{
+    background-color: #000;
+    margin-top: 34px;
+    margin-left: 50px;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 210px;
+    height: 71px;
+    box-shadow: 0 4px 19px rgb(243 251 96 / 70%);
+    transform: perspective(100px) rotateX(160deg);
+}
+
+.seat{
+    background-color: #444451;
+    width: 25px;
+    height: 22px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+
+.seat_colNo {
+    width: 25px;
+    height: 22px;
+    margin: 3px;
+    font-weight: 700;
+    font-color:#333;
+}
+
+.seat_rowNo {
+    width: 25px;
+    height: 22px;
+    margin: 3px;
+    font-weight: 700;
+    font-color:#333;
+}
+
+.seat_colBlank {
+    width:25px;
+    height: 22px;
+    margin-right: 13px;
+}
+
+.availableSeat{
+    background-color: #444451;
+    width: 15px;
+    height: 12px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: default;
+}
+
+.selectedSeatIcon{
+    background-color: #6feaf6;
+    width: 15px;
+    height: 12px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: default;
+}
+
+.seat:hover{
+    scale: 1.2;
+}
+
+.selectedSeat:hover{
+    scale: 1.2;
+}
+
+.seat:nth-of-type(2){
+    /*margin-right: 18px;*/
+}
+
+.seat:nth-of-type(7){
+    /*margin-left: 18px;*/
+}
+
+.selectedSeat{
+    background-color: #6feaf6;
+    width: 25px;
+    height: 22px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+
+.blank {
+    width:15px;
+    height:12px;
+    margin:3px;
+}
+
+.occupiedSeat{
+    background-color: #ff4f4f;
+    width: 25px;
+    height: 22px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    pointer-events : none;
+}
+
+.occupiedSeatIcon {
+    background-color: #ff4f4f;
+    width: 15px;
+    height: 12px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row{
+    display: flex;
+    margin-left: -12px;
+}
+
+.text{
+    margin-top: 30px;
+    padding: 20px;
+}
+
+#count{
+    color: #6feaf6;
+}
+
+#costs{
+    color: #6feaf6;
+}
+.seatError_blank {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    cursor: initial;
+}
+
+.seatError {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff4e4e;
+    text-align: center;
+    margin-top: 20px;
+    cursor: initial;
+}

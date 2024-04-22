@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.wrap {
+    width: 80%;
+    height: 650px;
+    align-items: center;
+    justify-content: center;
+    margin: 80px auto 0;
+    background-image: linear-gradient(to bottom, rgba(232, 232, 232, 0.37), rgba(255, 255, 255, 1));
+}
+
+section {
+    width: 100%;
+    height: 600px;
+    /*border:1px solid blue;*/
+    /*padding: 25px;*/
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.movieInfo {
+    /*margin-top:80px;*/
+    margin-right: 80px;
+}
+
+.movieInfo .movieInfoImage {
+    width: 300px;
+    max-width: 300px;
+    max-height: 450px;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.movieInfo .movieInfoImage img {
+    width: 340px;
+    height: 480px;
+    max-width: 340px;
+    max-height: 480px;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.movieInfo .movieInfoText {
+    width: 250px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 63px;
+    margin-left: 35px;
+    cursor: initial;
+}
+
+/*만약 제목 중앙 위치시 시작*/
+.movieInfoText {
+    text-align: center;
+    margin: 20px;
+}
+
+/*만약 제목 중앙 위치시 끝*/
+.ReservationInfo {
+    align-items: center;
+    margin-left: 55px;
+    display: flex;
+}
+
+.theater {
+    width: 450px;
+    height: 60vh;
+    margin-left: 50px;
+}
+
+.resDay {
+    width: 350px;
+    height: 60vh;
+    margin-right: 80px;
+}
+
+
+.nextBtn .next {
+    padding: 5px 20px;
+}
+
+.nextBtn .next input {
+    padding: 15px 30px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.theater_title {
+    width: 200px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 33px;
+}
+
+.theater_header {
+    margin-top: 30px;
+
+}
+
+.theater_Select {
+    width: 100%;
+    margin-top: 1.5vh;
+    box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+}
+
+.theater_Select select {
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    border-color: #666;
+    font-size: 15px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.theater_Select option {
+    border-radius: 15px;
+}
+
+.theater_Select2 .theater_Select2_reservation_idSelect {
+    width: 350px;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.resDay_title {
+    width: 200px;
+    height: 95px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #666;
+    line-height: 110px;
+    margin-bottom: 20px;
+}
+
+.resDay_header {
+    display: flex;
+
+}
+
+.resDay_Select {
+    width: 200px;
+    height: 70px;
+    flex-flow: row nowrap;
+    display: flex;
+    padding-left: 20px;
+}
+
+.resDay .resDay_header .resDay_Select .resDay_Select_month {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin-top: 45px;
+    margin-left: 50px;
+    color: #666;
+}
+
+.resDay_Calendar {
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+.resDay_movieTime {
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    border: 1px solid green;
+}
+
+.nextBtn {
+    width: 150px;
+    height: 100px;
+    margin-top: 580px;
+}
+
+.next button {
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    padding: 13px 22px;
+    color: white;
+    background-image: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.next button:hover {
+    top: 2px;
+    background-image: linear-gradient(to left, rgb(242, 82, 50), rgb(242, 52, 74));
+}

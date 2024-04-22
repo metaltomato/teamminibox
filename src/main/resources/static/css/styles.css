@@ -1,0 +1,131 @@
+* { margin:0; padding:0; box-sizing: border-box }
+=======
+* { margin:0; padding:0; }
+
+>>>>>>> parent of e4288b7 (css 날아간거 살리기)
+ul li { list-style:none; }
+
+ .contain {
+    clear:both;
+    padding-bottom:50px;
+    margin: 0 auto;
+}
+
+.box1 {
+    width:1200px;
+    height:450px;
+    padding: 60px 40px 0 52px;
+    box-sizing: border-box;
+    background-color: #DCDCDC;
+    /*border:1px solid blue;*/
+    margin: 0 auto;
+}
+/*My Page 글자*/
+.box1 h1 {
+    float: left;
+    font-size: 2.5em;
+}
+
+/*마이페이지 안에 프로필 이미지 위치 크기 지정*/
+.box1 .person-img {
+    width:150px;
+    height:10px;
+}
+
+.box1 .person-img img {
+    float: left;
+    margin-top: 30px;
+    border-radius: 50%;
+}
+
+/*마이페이지 안에 프로필 이미지 옆 회원정보(회원 아이디/등급 정보)*/
+.box1 .box-contents {
+    float:right;
+    width:850px;
+}
+.box-contents .person-info,
+.box-contents .person-grade {
+    width:450px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*그리드 크기 잡기 _그리드 부모객체*/
+.mypage-res-info {
+    width: 1200px;
+    height: 500px;
+    padding: 60px 0 45px;
+    display: grid;
+    /*border: 3px solid black;*/
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+
+/* +버튼 설정 (클릭하면 총 예약내역 나오는 페이지) */
+.mypage-res-info .cell-b button {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border: none;
+}
+
+/*My 예매내역 위치 잡기*/
+.mypage-res-info .cell-a {
+    grid-column: 1/4;
+}
+.mypage-res-info .cell-b {
+    grid-column: 4/5;
+    margin-left: 260px;
+    background: none;
+}
+/*예매내역 폰트 크기 설정 (row)*/
+.mypage-res-info .cell-c,
+.mypage-res-info .cell-d,
+.mypage-res-info .cell-e,
+.mypage-res-info .cell-f {
+    font-size: 21px;
+    font-weight: 540;
+    height: 400px;
+}
+.mypage-res-info .cell-c p,
+.mypage-res-info .cell-d p,
+.mypage-res-info .cell-e p,
+.mypage-res-info .cell-f p {
+    line-height: 20px;
+}
+
+
+/*예매내역 위치 설정 (row)*/
+.mypage-res-info .cell-c {
+    grid-row: 2/5;
+    border: 1px solid #A5A5A7;
+    background-color: #DCDCDC;
+}
+.mypage-res-info .cell-d {
+    grid-row: 2/5;
+    border: 1px solid #A5A5A7;
+    background-color: #DCDCDC;
+}
+.mypage-res-info .cell-e {
+    grid-row: 2/5;
+    border: 1px solid #A5A5A7;
+    background-color: #DCDCDC;
+}
+.box2 .cell-f {
+    grid-row: 2/5;
+    border: 1px solid #A5A5A7;
+    background-color: #DCDCDC;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.TeamPortfolio.domain.file.FileMapper">
+
+<!--    CREATE TABLE `tb_file` (-->
+<!--    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '파일 번호 (PK)',-->
+<!--    `post_id` bigint(20) NOT NULL COMMENT '게시글 번호 (FK)',-->
+<!--    `original_name` varchar(255) NOT NULL COMMENT '원본 파일명',-->
+<!--    `save_name` varchar(40) NOT NULL COMMENT '저장 파일명',-->
+<!--    `size` int(11) NOT NULL COMMENT '파일 크기',-->
+<!--    `delete_yn` tinyint(1) NOT NULL COMMENT '삭제 여부',-->
+<!--    `created_date` datetime NOT NULL DEFAULT current_timestamp() COMMENT '생성일시',-->
+<!--    `deleted_date` datetime DEFAULT NULL COMMENT '삭제일시',-->
+<!--    PRIMARY KEY (`id`),-->
+<!--    KEY `fk_post_file` (`post_id`),-->
+<!--    CONSTRAINT `fk_post_file` FOREIGN KEY (`post_id`) REFERENCES `tb_post` (`id`)-->
+<!--    ) COMMENT '파일';-->
+
+    <!-- tb_file 테이블 전체 컬럼 -->
+    <sql id="fileColumns">
+          id
+        , post_id
+        , original_name
+        , save_name
+        , size
+        , delete_yn
+        , created_date
+        , deleted_date
+    </sql>
+
+
+    <!-- 파일 정보 저장 -->
+    <insert id="saveAll" parameterType="list">
+        INSERT INTO tb_file (
+            <include refid="fileColumns" />
+        ) VALUES
+        <foreach item="file" collection="list" separator=",">
+        (
+              #{file.id}
+            , #{file.postId}
+            , #{file.originalName}
+            , #{file.saveName}
+            , #{file.size}
+            , 0
+            , NOW()
+            , NULL
+        )
+        </foreach>
+    </insert>
+
+
+    <!-- 파일 리스트 조회 -->
+    <select id="findAllByPostId" parameterType="long" resultType="com.example.TeamPortfolio.domain.file.FileResponse">
+        SELECT
+            <include refid="fileColumns" />
+        FROM
+            tb_file
+        WHERE
+            delete_yn = 0
+            AND post_id = #{value}
+        ORDER BY
+            id
+    </select>
+
+
+    <!-- 파일 리스트 조회 -->
+    <select id="findAllByIds" parameterType="list" resultType="com.example.TeamPortfolio.domain.file.FileResponse">
+        SELECT
+            <include refid="fileColumns" />
+        FROM
+            tb_file
+        WHERE
+            delete_yn = 0
+            AND id IN
+            <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+            </foreach>
+        ORDER BY
+            id
+    </select>
+
+
+    <!-- 파일 삭제 -->
+    <delete id="deleteAllByIds" parameterType="list">
+        UPDATE tb_file
+        SET
+              delete_yn = 1
+            , deleted_date = NOW()
+        WHERE
+            id IN
+            <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+            </foreach>
+    </delete>
+
+
+    <!-- 파일 상세정보 조회 -->
+    <select id="findById" parameterType="long" resultType="com.example.TeamPortfolio.domain.file.FileResponse">
+        SELECT
+            <include refid="fileColumns" />
+        FROM
+            tb_file
+        WHERE
+            delete_yn = 0
+            AND id = #{value}
+    </select>
+
+</mapper>

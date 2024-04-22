@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation check</title>
+    <link rel="stylesheet" th:href="@{/css/check.css}">
+</head>
+<body>
+<div layout:fragment="content">
+    <form action="/reservation/done" method="post">
+        <input type="hidden" name="rank" th:value="${rank}"/>
+        <input type="hidden" name="image" th:value="${image}"/>
+        <input type="hidden" name="movieNm" th:value="${movieNm}">
+        <input type="hidden" name="username" th:value="${#authentication.principal.username}">
+        <input type="hidden" name="reservation_day" th:value="${reservation_day}">
+        <input type="hidden" name="reservation_num" th:value="${reservation_num}">
+        <div id="wrap">
+            <section>
+                <div class="box">
+                    <table class="wrapper all-font-sans" width="100%" height="100%" cellpadding="0" cellspacing="0"
+                           role="presentation">
+                        <tr>
+                            <td align="center" style="padding: 24px;" width="100%">
+                                <table class="sm-w-full" width="600" cellpadding="0" cellspacing="0"
+                                       role="presentation">
+                                    <tr>
+                                        <td class="sm-hidden">
+                                            <img th:src="${image}" alt="movie_image">
+                                        </td>
+                                        <td align="left" class="sm-p-20 sm-dui17-b-t reservation_box"
+                                            style="border-radius: 2px; padding: 50px; position: relative; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05); vertical-align: top; z-index: 50;"
+                                            bgcolor="#ffffff" valign="top">
+                                            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                                                <tr>
+                                                    <td width="80%">
+                                                        <h1 class="sm-text-lg"
+                                                            style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px; font-family: 'Noto Sans KR', sans-serif;">
+                                                            예매 확인</h1>
+                                                        <p class="sm-text-xs"
+                                                           style="margin: 0; color: #a0aec0; font-size: 14px; font-family: 'Noto Sans KR', sans-serif;">반드시 잘 확인하고 예매해주세요!</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div style="line-height: 32px;">&zwnj;</div>
+                                            <table class="sm-leading-32" style="line-height: 28px; font-size: 14px;"
+                                                   width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                                                <tr>
+                                                    <td class="sm-inline-block" style="color: #718096;" width="50%">
+                                                        영화 제목
+                                                    </td>
+                                                    <td class="sm-inline-block"
+                                                        style="font-weight: 600; text-align: right; width:50%;
+                                                        align:right; white-space: nowrap;">
+                                                        <span th:text="${movieNm}"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sm-inline-block" style="color: #718096;" width="50%">
+                                                        관람 일시
+                                                    </td>
+                                                    <td class="sm-inline-block"
+                                                        style="font-weight: 600; text-align: right;" width="50%"
+                                                        align="right">
+                                                        <span th:text="${reservation_day}"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sm-w-1-4 sm-inline-block" style="color: #718096;"
+                                                        width="50%">좌석 번호
+                                                    </td>
+                                                    <td class="sm-w-3-4 sm-inline-block"
+                                                        style="font-weight: 600; text-align: right;" width="50%"
+                                                        align="right"><span th:text="${reservation_num}"></span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                                                <tr>
+                                                    <td style="padding-top: 24px; padding-bottom: 24px;">
+                                                        <div style="background-color: #edf2f7; height: 2px; line-height: 2px;">
+                                                            &zwnj;
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <table style="line-height: 28px; font-size: 14px;" width="100%"
+                                                   cellpadding="0" cellspacing="0" role="presentation">
+                                                <tr>
+                                                    <td style="color: #718096; width:100%; padding-top:10px;" >· 영화 상영시작시간 15분 전까지 취소가 가능하며<br>
+                                                        캡쳐화면은 입장이 제한될 수 있습니다.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="color: #718096; width:100%; padding-top:10px;" >· 입장 지연에 따른 관람 불편을 최소화하기 위해<br>
+                                                        본 영화는 10분 후 상영이 시작됩니다.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight: 600; padding-top: 46px; color: #000000; font-size: 20px; width:50%;">
+                                                        <button type="button" class="undoBtn" onclick="history.back();">돌아가기</button></a>
+                                                    </td>
+                                                    <td style="font-weight: 600; padding-top: 46px; font-size: 20px; width:50%;">
+                                                        <button type="submit" class="doneBtn">예매 완료</button>
+                                                    </td>
+                                                    <script>
+                                                        function getSelectedSeatsFromLocalStorage() {
+                                                            const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+                                                            return selectedSeats;
+                                                        }
+
+                                                        function updateSeatsClassOnSubmit() {
+                                                            const selectedSeats = getSelectedSeatsFromLocalStorage();
+                                                            selectedSeats.forEach(seatId => {
+                                                                const seatElement = document.querySelector(`.seat[data-seat='${seatId}']`);
+                                                                if (seatElement) {
+                                                                    seatElement.classList.remove('selectedSeat');
+                                                                    seatElement.classList.add('occupiedSeat');
+                                                                }
+                                                            });
+                                                        }
+
+                                                        document.getElementById('doneBtn').addEventListener('click', function () {
+                                                            updateSeatsClassOnSubmit();
+                                                            localStorage.removeItem('selectedSeats');
+                                                        });
+                                                    </script>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+</body>
+</html>

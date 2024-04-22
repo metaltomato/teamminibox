@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6" xmlns="http://www.w3.org/1999/html" layout:decorate="~{layout/header_myReservation.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reservation</title>
+    <!--js 라이브러리 추가-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--js 외부시트 적용-->
+    <script type="text/javascript" th:src="@{/js/mypage.js}"></script>
+    <!--스타일 시트 적용-->
+    <link rel="stylesheet" th:href="@{/css/myReservation.css}" type="text/css"/>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <section>
+        <div class="container">
+            <h1 class="my-reservation-title">MY 예매내역</h1>
+            <div class="movies-container">
+                <!-- 예약 정보 반복 -->
+                <div th:each="reservation : ${reservations}">
+                    <div class="movie">
+
+                        <!--영화 포스터 이미지-->
+                        <div class="movie-img"><img th:src="${reservation.image}"></div>
+
+                        <!--영화 정보-->
+                        <div class="text-movie-cont">
+                            <div class="mr-grid">
+                                <div class="cell-c">
+                                    <br>
+                                    <p>예약 번호 : <span th:text="${reservation.reservation_id}"></span></p>
+
+                                    <p>영화 제목 : <span th:text="${reservation.movieNm}"></span></p>
+
+                                    <p>좌석 번호 : <span th:text="${reservation.reservation_num}"></span></p>
+
+                                    <p>예약 일자 : <span th:text="${reservation.reservation_day}"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mr-grid font-row">
+                            <div class="col1">
+                                <br>
+                                <p class="movie-footer"> 영화 그 이상의 감동, MINIBOX! </p>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="mr-grid cancelBtn">
+                            <!--예매 취소 버튼-->
+                            <button class="cancel-button" th:data-reservation-id="${reservation.reservation_id}" onclick="cancelReservation(this.dataset.reservationId)">예매 취소</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

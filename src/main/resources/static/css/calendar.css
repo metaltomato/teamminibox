@@ -1,0 +1,60 @@
+.dayContainer {
+    padding-left:4.7px;
+    width:400px;
+    min-width: 345px;
+    max-width: 400px;
+    row-gap: 11px;
+    column-gap: 10.9px;
+}
+
+.flatpickr-rContainer {
+    width: 350px;
+    height: 375px;
+}
+
+.flatpickr-innerContainer {
+    width: 350px;
+}
+
+.flatpickr-calendar.open, .flatpickr-calendar.inline {
+    width: 350px;
+}
+
+.flatpickr-days {
+    width:345px;
+}
+
+.flatpickr-input[readonly] {
+    cursor: initial;
+    border: none;
+    padding-right: 19px;
+    color: white;
+    outline: none;
+    display: none;
+}
+
+.flatpickr-calendar.inline {
+    top:-17px;
+}
+
+.flatpickr-weekdays {
+    height: 53px;
+}
+
+.dateError_blank {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    cursor: initial;
+}
+
+.dateError {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff4e4e;
+    text-align: center;
+    margin-top: 10px;
+    cursor: initial;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--js 라이브러리 추가-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--js 외부시트 적용-->
+    <script type="text/javascript" th:src="@{/js/mypage.js}"></script>
+    <!--스타일 시트 적용-->
+    <link rel="stylesheet" th:href="@{/css/myPage.css}"/>
+    <style>
+    * { margin:0; padding:0; font-family: 'Noto Sans KR', sans-serif; text-decoration: none;}
+    a {text-decoration:none !important; color: inherit !important;}
+
+    header{
+    margin-top:30px;
+    }
+
+    .header_wrap {
+    display:flex;
+    width: 80%;
+    height: 11vh;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+    }
+    .logo {
+    margin-top:80px;
+    }
+    .header_wrap .menu {
+    width: 30%;
+    }
+    .logo img {
+    width: 30%;
+    margin-top:100px;
+    }
+    .menu_img {
+        width: 20vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    /*.menu{*/
+    /*    width: 30vw;*/
+    /* }*/
+
+    .menu_img a {
+        position: relative;
+    }
+    .menu_img a img{
+        margin-left: 1.5vw;
+        width: 2.5vw;
+        position: absolute;
+        left: -0.65vw;
+        top: -6vh;
+    }
+    .menu_text{
+        bottom: -1.5vh;
+        left: 13%;
+        transform: translateX(-50%);
+        position: absolute;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .login_icon {
+        margin-left: 59px;
+        margin-right:52px;
+    }
+    .logout_icon{
+        margin-left: 59px;
+        margin-right:60px;
+    }
+
+    .menu_text{
+        font-weight: bold;
+        margin-left:40px;
+        color:#3e3e3e;
+    }
+
+    .logout{
+    font-weight: bold;
+    margin-left:36px;
+    color:#3e3e3e;
+    }
+    .menu_user{
+    margin-left:300px;
+    }
+
+    /*푸터*/
+    footer{
+    width:100%;
+    height:100px;
+    background:#3e3e3;
+    bottom : 0;
+    }
+    .copyright{
+    width:100%;
+    height:100px;
+    padding-top:2%;
+    }
+    .copyright h2{
+    top:50%;
+    text-align:center;
+    font-size:13px;
+    color:#696969;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header_wrap">
+        <div class="logo">
+            <a href="/">
+                <img src="/img/minibox_logo.png" alt="로고이미지">
+            </a>
+        </div>
+        <div class="menu_user" sec:authorize="isAuthenticated()">
+            <p>
+                    <span th:text="${#authentication.principal.username}"
+                          style="font-weight: bold; color:#fb4357;"></span>
+                님 환영합니다!
+            </p>
+        </div>
+        <div class="menu">
+            <div class="menu_img">
+                <a href="/customer/login" sec:authorize="isAnonymous()" th:if="${#authorization.expression('isAnonymous()')}">
+                    <img src="/img/login_icon.png" alt="로그인아이콘" class="login_icon"><span class="menu_text">로그인</span></a>
+
+                <a href="/customer/logout" sec:authorize="isAuthenticated()" th:if="${#authorization.expression('isAuthenticated()')}">
+                    <img src="/img/login_icon.png" alt="로그아웃아이콘" class="logout_icon"><span class="menu_text">로그아웃</span></a>
+
+                <a href="/customer/join"><img src="/img/join_icon.png" alt="회원가입아이콘"><span class="menu_text">회원가입</span></a>
+
+                <a href="/my/Page"><img src="/img/mypage_icon.png" alt="마이페이지아이콘"><span class="menu_text">마이페이지</span></a>
+
+                <a th:href="@{/post/list.do}"><img src="/img/review.png" alt="리뷰아이콘"><span class="menu_text">리뷰게시판</span></a>
+            </div>
+        </div>
+
+    </div>
+</header>
+<div layout:fragment="content"></div>
+</body>
+</html>

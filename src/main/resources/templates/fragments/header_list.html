@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="main-head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <th:block layout:fragment="title"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/content.css}" />
+    <link rel="stylesheet" th:href="@{/css/button.css}" />
+
+    <th:block layout:fragment="add-css"></th:block>
+    <style>
+* {margin: 0; font-family: 'Noto Sans KR', sans-serif; text-decoration: none;}
+a {text-decoration:none !important;}
+
+header{
+    margin-top:30px;
+}
+
+.header_wrap {
+    display:flex;
+    width: 80%;
+    height: 11vh;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+ }
+.logo {
+margin-top:80px;
+ }
+.header_wrap .menu {
+    width: 30%;
+ }
+ .logo img {
+    width: 30%;
+    margin-top:100px;
+ }
+.menu_img {
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+}
+/*.menu{*/
+/*    width: 30vw;*/
+/* }*/
+
+.menu_img a {
+    position: relative;
+}
+.menu_img a img{
+    margin-left: 1.5vw;
+    width: 2.5vw;
+    position: absolute;
+    left: -0.65vw;
+    top: -6vh;
+}
+.menu_text{
+    bottom: -1.5vh;
+    left: 13%;
+    transform: translateX(-50%);
+    position: absolute;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login_icon {
+    margin-left: 59px;
+    margin-right:52px;
+}
+.logout_icon{
+    margin-left: 59px;
+    margin-right:60px;
+}
+
+.menu_text{
+    font-weight: bold;
+    margin-left:40px;
+    color:#3e3e3e;
+}
+ .logout{
+    font-weight: bold;
+    margin-left:36px;
+    color:#3e3e3e;
+ }
+ .menu_user{
+    margin-left:300px;
+ }
+    </style>
+</head>
+</html>

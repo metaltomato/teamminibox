@@ -1,0 +1,95 @@
+ .contain {
+    clear:both;
+    padding-bottom:50px;
+    margin: 0 auto;
+    margin-top:130px;
+}
+
+.box1 {
+    width:80%;
+    height:450px;
+    padding: 80px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to bottom, rgba(232, 232, 232, 0.37), rgba(255, 255, 255, 1));
+    /*border:1px solid blue;*/
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.box1_child{
+    position: relative;
+}
+.reservationBtn{
+    border: 2px solid #fb4357;
+    border-radius: 50px;
+    background: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 604px;
+    margin-top:60px;
+    color: #fb4357;
+    cursor:pointer;
+}
+hr{
+ background-color:#c9c9c9;
+ width:769px;
+ opacity: 30%;
+}
+/*My Page 글자*/
+.box1 h1 {
+    font-size: 2.5em;
+    margin-left:30px;
+}
+
+/*마이페이지 안에 프로필 이미지 위치 크기 지정*/
+.box1 .person-img {
+    width:150px;
+    height:10px;
+    margin-left:30px;
+}
+
+.box1 .person-img img {
+    margin-top: 30px;
+    border-radius: 50%;
+}
+
+/*마이페이지 안에 프로필 이미지 옆 회원정보(회원 아이디/등급 정보)*/
+.box1 .box-contents {
+    width:850px;
+    margin-left:500px;
+}
+.myPage_text{
+    width:300px;
+}
+.box-contents .person-info {
+    width:800px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.box-contents .person-grade{
+    width:900px;
+    height:300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/*마이 예매내역 글자와 플러스 버튼, 구분선 구역*/
+.res {
+    width:1200px;
+    height:250px;
+    padding: 60px 40px 20px 40px;
+    box-sizing: border-box;
+    /*background-color: #DCDCDC;*/
+    /*border:1px solid blue;*/
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+

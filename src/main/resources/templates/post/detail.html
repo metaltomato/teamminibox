@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/header_detail">
+
+    <th:block layout:fragment="title">
+        <title>리스트 페이지</title>
+
+    </th:block>
+    <style>
+          *{
+          @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+.notosanskr
+ font-family: 'Noto Sans KR', sans-serif;
+}
+    </style>
+
+    <th:block layout:fragment="content">
+
+        <body>
+            <div class="header">
+                <div class="popular-movie-slider">
+
+                    <img th:src="${movieData.image}" class="poster" width="300" height="450">
+
+                    <div class="popular-movie-slider-content">
+                        <p class="release" style="margin-bottom:10px; font-family: 'Noto Sans KR', sans-serif;">개봉일 : [[${movieData.releaseDate}]]</p>
+
+                        <h2 class="movie-name" style="color:#fff; font-family: 'Noto Sans KR', sans-serif;" th:text="${movieData.movieNm}"></h2>
+
+                        <p class="desc" style="line-height:30px; font-family: 'Noto Sans KR', sans-serif; font-size:15px;">[[${movieData.overview}]]</p>
+
+                        <div class="movie-info">
+                            <i class="fa fa-clock-o" > &nbsp;&nbsp;&nbsp;<span>[[${movieData.runtime}]] min.</span></i>
+                        </div>
+
+                        <div class="movie-btns">
+                            <button id="youtubeSearchButton" style="font-family: 'Noto Sans KR', sans-serif;"><i class="fa fa-play"></i> &nbsp; Watch trailer</button>
+                            <button class="read-more reservationButton" style="font-family: 'Noto Sans KR', sans-serif;"
+                                    th:id="'reservation-' + ${movieData.id}"
+                                    th:data-movie-id="${movieData.id}"
+                                    th:data-movie-rank="${movieData.rank}"
+                                    th:data-movie-nm="${movieData.movieNm}"
+                                    th:data-image="${movieData.image}"
+                                    th:data-overview="${movieData.overview}"
+                                    th:data-runtime="${movieData.runtime}"
+                                    th:data-release-date="${movieData.releaseDate}"
+                                    th:onclick="'reservation(' + ${movieData.id} + ')'"><i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i>&nbsp; 예매하기</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </body>
+
+        <script th:inline="javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                const youtubeSearchButton = document.getElementById('youtubeSearchButton');
+
+                youtubeSearchButton.addEventListener('click', function () {
+                    const movieName = [[${movieData.movieNm}]];
+                    const youtubeUrl = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(movieName);
+                    window.location.href = youtubeUrl;
+                });
+            });
+            function reservation(id) {
+                if (checkLoginAndRedirect()) {
+                    const movieElement = document.querySelector(`[data-movie-id="${id}"]`);
+                    const rank = movieElement.getAttribute("data-movie-rank");
+                    const movieNm = movieElement.getAttribute("data-movie-nm");
+                    const image = movieElement.getAttribute("data-image");
+                    const overview = movieElement.getAttribute("data-overview");
+                    const runtime = movieElement.getAttribute("data-runtime");
+                    const releaseDate = movieElement.getAttribute("data-release-date");
+
+                    // 폼 요소를 동적으로 생성하고 값을 설정합니다.
+                    const form = document.createElement("form");
+                    form.setAttribute("method", "post");
+                    form.setAttribute("action", "/reservation/start");
+
+                    addHiddenField(form, "id", id);
+                    addHiddenField(form, "rank", rank);
+                    addHiddenField(form, "movieNm", movieNm);
+                    addHiddenField(form, "image", image);
+                    addHiddenField(form, "overview", overview);
+                    addHiddenField(form, "runtime", runtime);
+                    addHiddenField(form, "releaseDate", releaseDate);
+
+                    // 생성된 폼 요소를 문서에 추가하고 제출합니다.
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }
+            function goReview(id) {
+                const movieElement = document.querySelector(`[data-movie-id="${id}"]`);
+                const rank = movieElement.getAttribute("data-movie-rank");
+                const movieNm = movieElement.getAttribute("data-movie-nm");
+                const image = movieElement.getAttribute("data-image");
+                const overview = movieElement.getAttribute("data-overview");
+                const runtime = movieElement.getAttribute("data-runtime");
+                const releaseDate = movieElement.getAttribute("data-release-date");
+
+                // 예매 페이지로 이동하고 값을 전달하는 코드
+                window.location.href = `/post/detail/${rank}`;
+
+            }
+
+            function checkLoginAndRedirect() {
+                const isLoggedIn = [[${#authentication.principal != 'anonymousUser'}]]; // Thymeleaf를 사용하여 로그인 상태를 확인합니다.
+
+                if (isLoggedIn) {
+                    // 로그인한 상태이므로 함수 실행을 계속합니다.
+                    return true;
+                } else {
+                    // 로그인하지 않은 상태인 경우 경고 메시지를 표시한 후 로그인 페이지로 이동합니다.
+                    alert("로그인 후 이용 가능합니다");
+                    window.location.href = "/customer/login";
+                }
+            }
+
+            function addHiddenField(form, name, value) {
+                const input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("name", name);
+                input.setAttribute("value", value);
+                form.appendChild(input);
+            }
+
+            //indicator
+            let marker = document.querySelector('.marker');
+            let items = document.querySelectorAll('nav ul li');
+
+
+            function indicator(e){
+                marker.style.left = e.offsetLeft + "px";
+                marker.style.width = e.offsetWidth + "px";
+            }
+
+            items.forEach(link =>{
+                link.addEventListener("click",(e)=>{
+                    indicator(e.target);
+                })
+            })
+
+
+
+            //for menu scroll
+            let nav = document.querySelector('nav');
+            let ul = document.querySelector('nav ul');
+
+            window.addEventListener("scroll",()=>{
+                if(window.pageYOffset >= 20){
+                    nav.classList.add('nav');
+                }else{
+                    nav.classList.remove('nav');
+                }
+
+                if(window.pageYOffset >= 700){
+                    nav.classList.add('navBlack');
+                }else{
+                    nav.classList.remove('navBlack');
+                }
+            })
+
+        </script>
+    </th:block>
+
+</html>

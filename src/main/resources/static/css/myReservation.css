@@ -1,0 +1,102 @@
+ul li {
+    list-style: none;
+}
+ul li img {
+    width: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+}
+h1 {
+    font-size: 30px;
+    padding: 18px;
+    margin-bottom:20px;
+}
+
+/* 컨테이너와 movies 컨테이너 */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top:80px;
+    max-width: 1200px;
+    text-align: center;
+}
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    padding: 20px
+}
+
+/* 영화 예약 내용 부분 */
+.movie {
+    /*display: grid;*/
+    display: inherit;
+    height: 500px; /*세로값 고정*/
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    margin-bottom: 20px; /* 박스 사이 간격 */
+    padding: 20px; /* 박스 내부와 콘텐츠 사이 간격 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    background-color:#fcfcfc;
+    position: relative;
+    color: #2f2f2f;
+}
+/*영화 포스터 이미지*/
+.movie-img {
+    display: inline-block;
+    width: 150px;
+    height: 220px;
+}
+.movie-img img {
+    max-width: 100%;  /* 이미지의 최대 너비를 자신의 컨테이너에 맞게 조정 */
+    height: auto;  /* 이미지 높이를 비율에 맞게 유지 */
+    border-radius: 10px;
+}
+.cell-c{
+  width:320px;
+
+}
+/*예약 정보 텍스트*/
+.cell-c p {
+    line-height: inherit;
+    font-size:14px;
+}
+
+.text-movie-cont {
+    /*display: inline-block;
+    width: calc(100% - 150px);
+    vertical-align: top;
+    text-align: initial;*/
+}
+
+/*예약 취소 버튼*/
+.cancel-button {
+    background-image: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+    cursor: pointer;
+    width: 110px;
+    line-height: 32px;
+    padding:4px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    color: white;
+    float: inherit ;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.cancelBtn{
+    position: absolute;
+    margin-left:107px;
+}
+
+/*영화 그 이상의 감동 텍스트*/
+.movie-footer {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+
+

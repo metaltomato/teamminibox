@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.TeamPortfolio.domain.post.PostMapper">
+
+<!--    CREATE TABLE `tb_post` (-->
+<!--    `id`            bigint(20)    NOT NULL AUTO_INCREMENT COMMENT 'PK',-->
+<!--    `title`         varchar(100)  NOT NULL COMMENT '제목',-->
+<!--    `content`       varchar(3000) NOT NULL COMMENT '내용',-->
+<!--    `writer`        varchar(20)   NOT NULL COMMENT '작성자',-->
+<!--    `view_cnt`      int(11)       NOT NULL COMMENT '조회 수',-->
+<!--    `notice_yn`     tinyint(1)    NOT NULL COMMENT '공지글 여부',-->
+<!--    `delete_yn`     tinyint(1)    NOT NULL COMMENT '삭제 여부',-->
+<!--    `created_date`  datetime      NOT NULL DEFAULT current_timestamp() COMMENT '생성일시',-->
+<!--    `modified_date` datetime               DEFAULT NULL COMMENT '최종 수정일시',-->
+<!--    PRIMARY KEY (`id`)-->
+<!--    ) COMMENT '게시글';-->
+
+    <!-- tb_post 테이블 전체 컬럼 -->
+    <sql id="postColumns">
+          id
+        , title
+        , content
+        , writer
+        , view_cnt
+        , notice_yn
+        , delete_yn
+        , created_date
+        , modified_date
+    </sql>
+
+
+    <!-- 게시글 검색 -->
+    <sql id="search">
+        <!-- 검색 키워드가 있을 때 -->
+        <if test="keyword != null and keyword != ''">
+            <choose>
+                <!-- 검색 유형이 있을 때 -->
+                <when test="searchType != null and searchType != ''">
+                    <choose>
+                        <when test="'title'.equals( searchType )">
+                            AND title LIKE CONCAT('%', #{keyword}, '%')
+                        </when>
+                        <when test="'content'.equals( searchType )">
+                            AND content LIKE CONCAT('%', #{keyword}, '%')
+                        </when>
+                        <when test="'writer'.equals( searchType )">
+                            AND writer LIKE CONCAT('%', #{keyword}, '%')
+                        </when>
+                    </choose>
+                </when>
+
+                <!-- 전체 검색일 때 -->
+                <otherwise>
+                    AND (
+                           title LIKE CONCAT('%', #{keyword}, '%')
+                        OR content LIKE CONCAT('%', #{keyword}, '%')
+                        OR writer LIKE CONCAT('%', #{keyword}, '%')
+                    )
+                </otherwise>
+            </choose>
+        </if>
+    </sql>
+
+
+    <!-- 게시글 저장 -->
+    <insert id="save" parameterType="com.example.TeamPortfolio.domain.post.PostRequest" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_post (
+            <include refid="postColumns" />
+        ) VALUES (
+              #{id}
+            , #{title}
+            , #{content}
+            , #{writer}
+            , 0
+            , #{noticeYn}
+            , 0
+            , NOW()
+            , NULL
+        )
+    </insert>
+
+
+    <!-- 게시글 상세정보 조회 -->
+    <select id="findById" parameterType="long" resultType="com.example.TeamPortfolio.domain.post.PostResponse">
+        SELECT
+            <include refid="postColumns" />
+        FROM
+            tb_post
+        WHERE
+            id = #{value}
+    </select>
+
+
+    <!-- 게시글 수정 -->
+    <update id="update" parameterType="com.example.TeamPortfolio.domain.post.PostRequest">
+        UPDATE tb_post
+        SET
+              modified_date = NOW()
+            , title = #{title}
+            , content = #{content}
+            , writer = #{writer}
+            , notice_yn = #{noticeYn}
+        WHERE
+            id = #{id}
+    </update>
+
+
+    <!-- 게시글 삭제 -->
+    <delete id="deleteById" parameterType="long">
+        UPDATE tb_post
+        SET
+            delete_yn = 1
+        WHERE
+            id = #{id}
+    </delete>
+
+
+    <!-- 게시글 리스트 조회 -->
+    <select id="findAll" parameterType="com.example.TeamPortfolio.common.dto.SearchDto" resultType="com.example.TeamPortfolio.domain.post.PostResponse">
+        SELECT
+            <include refid="postColumns" />
+        FROM
+            tb_post
+        WHERE
+            delete_yn = 0
+            <include refid="search" />
+        ORDER BY
+            id DESC
+        LIMIT #{pagination.limitStart}, #{recordSize}
+    </select>
+
+
+    <!-- 게시글 수 카운팅 -->
+    <select id="count" parameterType="com.example.TeamPortfolio.common.dto.SearchDto" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            tb_post
+        WHERE
+            delete_yn = 0
+            <include refid="search" />
+    </select>
+
+    <update id="cntPlus">
+        update tb_post set view_cnt = view_cnt + 1 where id = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6" xmlns="http://www.w3.org/1999/html"
+      layout:decorate="~{layout/header_myPage.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+</head>
+
+<body>
+<div layout:fragment="content" class="contain">
+    <div class="box1">
+        <div class="box1_child">
+            <div class="myPage_text">
+                <h1>MY PAGE</h1>
+            </div>
+            <div class="person-img">
+                <img src="/img/profile.jpg"/>
+            </div>
+            <div class="box-contents">
+                <div class="person-info">
+                    <!-- 인증된 사용자의 이름을 화면에 표시 _cid 얻어와짐 -->
+                    <h2>
+                        <span th:text="${#authentication.principal.username}" style="color:#fb4357"></span> 님 환영합니다!
+                    </h2>
+                </div>
+                <hr>
+                <div class="person-grade">
+                    <h2>고객님의 등급은
+                        <span th:text="${userGrade}"></span>입니다.
+                    </h2>
+                    <button class="reservationBtn" th:id="reservationButton"><!--버튼 클릭시 나의 총 예약내역 페이지로 이동-->
+                        예매내역 확인하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div><!--BOX1 닫는 태그-->
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .logo {
+            width: 10%;
+            margin: 10vh auto 0 auto;
+        }
+        img {
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="/img/minibox_logo.png" alt="로고이미지">
+        </a>
+    </div>
+</header>
+<div layout:fragment="content"></div>
+</body>
+</html>

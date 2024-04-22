@@ -1,0 +1,497 @@
+* {margin: 0; padding:0; font-family: 'Noto Sans KR', sans-serif; text-decoration: none;}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@font-face {
+    font-family: 'TTWanjudaedunsancheB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+header{
+    margin-top:30px;
+}
+
+.header_wrap {
+    display:flex;
+    width: 1280px;
+    height: 95px;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+ }
+.logo {
+margin-top:80px;
+ }
+.header_wrap .menu {
+    width: 30%;
+ }
+ .logo img {
+    width: 30%;
+    margin-top:100px;
+ }
+ .menu_img {
+     width: 300px;
+     display: flex;
+     justify-content: space-between;
+ }
+/*.menu{*/
+/*    width: 30vw;*/
+/* }*/
+
+.menu_img a {
+    position: relative;
+}
+.menu_img a img{
+    margin-left: 26px;
+    width: 45px;
+    position: absolute;
+    left: -7px;
+    top: -54px;
+}
+.menu_text{
+    bottom: -12px;
+    left: 2px;
+    transform: translateX(-50%);
+    position: absolute;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+}
+  /*.menu_img a:nth-child(3) img{*/
+  /*   margin-right:80px;*/
+  /*}*/
+  /* .menu_img a:nth-child(4) img{*/
+  /*    margin-right:80px;*/
+  /*}*/
+  /*  .menu_img a:last-child img{*/
+  /*    margin-right:0;*/
+  /*}*/
+
+/*.login_icon {*/
+/*  margin-left: 59px;*/
+/*  margin-right:52px;*/
+/*}*/
+/*.logout_icon{*/
+/*  margin-left: 59px;*/
+/*  margin-right:60px;*/
+/*}*/
+
+ .menu_text{
+    font-weight: bold;
+    margin-left:40px;
+    color:#3e3e3e;
+ }
+ .logout{
+    font-weight: bold;
+    margin-left:36px;
+    color:#3e3e3e;
+ }
+ .menu_user{
+    margin-left:300px;
+ }
+
+
+
+
+
+
+
+ section{
+    margin-top:40px;
+ }
+.wrap{
+    width:80%;
+    display:flex;
+    justify-content:center;
+ }
+.listImg{
+    height:auto;
+    max-height:400px;
+    border-radius: 10px;
+    /*border:2px solid #fff;*/
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+    /*box-shadow: 5px 5px 6px 0 rgba(255, 255, 255, 0.3);*/
+}
+.movieName{
+    margin-top: 2vh;
+    text-align: center;
+    color:#3e3e3e;
+    font-weight: bold;
+}
+.parent_king{
+    padding-top:260px;
+    height:710px;
+    background-color:rgba(232, 232, 232, 0.37);
+}
+.parent_king h1{
+    font-weight: bold;
+    font-size:30px;
+    margin:0 210px 30px;
+}
+.parent{
+    position: relative;
+}
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+button{
+    border:0;
+    outline:0;
+}
+.btnWrap{
+    display:none;
+    position: absolute;
+    top: 32%;
+    left:27%;
+}
+.reservationButton{
+    border-radius:5px;
+    padding:15px 40px;
+    color: white;
+    background-image: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+}
+.reservationButton:hover{
+    background-image: linear-gradient(to left, rgb(242, 82, 50), rgb(242, 52, 74));
+}
+.reviewButton:hover{
+  background-color:#e3e2e2;
+}
+.reviewButton{
+    border-radius: 5px;
+    margin-top:20px;
+    padding:15px 40px;
+    color: #272727;
+    border:none
+}
+.imgWrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.imgWrap:hover .btnWrap{
+    display:block;
+}
+.imgWrap:hover .listImg{
+   filter: brightness(60%);
+}
+.swiper_button{
+    width:80%;
+    height:40%;
+    top:30%;
+    left:10%;
+    margin:0 auto;
+    position: absolute;
+}
+.swiper-button-prev{
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      left: -22px;
+      top: calc(50% - 26px);
+      background-color: #fff;
+      opacity: 0.8;
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+      color: black !important;
+}
+.swiper-button-next{
+    width: 60px;
+    height: 60px;
+      cursor: pointer;
+      right: -20px;
+      top: calc(50% - 26px);
+      background-color: #fff;
+      opacity: 0.8;
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+      color: black !important;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 18px;
+}
+footer{
+    width:100%;
+    height:100px;
+    background:#3e3e3;
+    bottom : 0;
+}
+.copyright{
+    width:100%;
+    height:50px;
+    padding-top:2%;
+}
+.copyright h2{
+top:50%;
+   text-align:center;
+  font-size:13px;
+  color:#696969;
+}
+
+
+
+
+
+
+.maintop {
+    width: 100%;
+    height: 64vh;
+    overflow: hidden;
+}
+
+.maintop .untitled {
+    position: absolute;
+    height: 78%;
+    width: 100%;
+    /*animation: rotateHue infinite 20s linear;*/
+    animation-delay: 0.625s;
+    overflow: hidden;
+}
+@keyframes rotateHue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        filter: hue-rotate(90deg);
+    }
+    45% {
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        filter: hue-rotate(180deg);
+    }
+    70% {
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        filter: hue-rotate(270deg);
+    }
+    95% {
+        filter: hue-rotate(270deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+.untitled__shutters {
+    position: absolute;
+    height: 150vmax;
+    width: 150vmax;
+    left: calc(50% - 75vmax);
+    top: calc(50% - 75vmax);
+    pointer-events: none;
+    z-index: 2;
+    animation: rotateFrame 10s linear infinite;
+}
+@keyframes rotateFrame {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+.untitled__shutters:before, .untitled__shutters:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    background-color: #313131;
+    pointer-events: auto;
+}
+.untitled__shutters:before {
+    bottom: 50%;
+    animation: openTop 5s infinite;
+}
+@keyframes openTop {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+        animation-timing-function: cubic-bezier(0.8, 0, 0.1, 1);
+    }
+    40% {
+        transform: translate3d(-50%, -65vmax, 0);
+        animation-timing-functon: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    }
+    70% {
+        transform: translate3d(-50%, -65vmax, 0);
+        animation-timing-functon: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+        animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    }
+}
+.untitled__shutters:after {
+    top: 50%;
+    animation: openBottom 5s infinite;
+}
+@keyframes openBottom {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+        animation-timing-function: cubic-bezier(0.8, 0, 0.1, 1);
+    }
+    40% {
+        transform: translate3d(-50%, 65vmax, 0);
+        animation-timing-functon: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    }
+    70% {
+        transform: translate3d(-50%, 65vmax, 0);
+        animation-timing-functon: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+        animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    }
+}
+.untitled__slides {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.untitled__slide {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    animation: showHideSlide infinite 20s steps(1);
+}
+@keyframes showHideSlide {
+    0% {
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 1;
+    }
+    25% {
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
+    }
+}
+
+.untitled__slide:nth-child(1) {
+    animation-delay: 0s;
+}
+.untitled__slide:nth-child(1) .untitled__slideBg {
+    background-image: url(https://a-static.besthdwallpaper.com/avengers-endgame-hd-wallpaper-1920x1080-32343_48.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+.untitled__slide:nth-child(2) {
+    animation-delay: 5s;
+}
+.untitled__slide:nth-child(2) .untitled__slideBg {
+    background-image: url(https://images.hdqwalls.com/wallpapers/elemental-yp.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+.untitled__slide:nth-child(3) {
+    animation-delay: 10s;
+}
+.untitled__slide:nth-child(3) .untitled__slideBg {
+    background-image: url(https://images.hdqwalls.com/wallpapers/margot-robbie-barbie-movie-2w.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+.untitled__slide:nth-child(4) {
+    animation-delay: 15s;
+}
+.untitled__slide:nth-child(4) .untitled__slideBg {
+    background-image: url(https://t1.daumcdn.net/cfile/tistory/992B7A395D9E516E0E);
+    background-size: cover;
+    height: 100vh;
+}
+.untitled__slideBg {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    z-index: -1;
+    /*animation: bgInOut 5s infinite;*/
+}
+@keyframes bgInOut {
+    0% {
+        transform: rotate(-45deg) scale(1.1);
+        animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    33% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    66% {
+        transform: rotate(0deg);
+        animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    }
+    100% {
+        transform: rotate(45deg) scale(0.9);
+    }
+}
+.untitled__slideContent {
+    position: absolute;
+    top: 63%;
+    left: 40%;
+    transform: translate3d(-50%, -50%, 0);
+    color: white;
+    font-family: "Abril Fatface", sans-serif;
+    line-height: 0.8;
+    letter-spacing: -0.025em;
+    z-index: 2;
+    opacity: 1;
+    text-shadow: 0 0 0.5em rgba(179, 64, 26, 0.25);
+}
+
+.untitled__slideContent p{
+    display: block;
+    font-size: 130px;
+    letter-spacing: -16px;
+    font-family: 'TTWanjudaedunsancheB';
+    margin:30px 0;
+}
+
+.button {
+    font-family: "Roboto Mono", sans-serif;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2vmin;
+    display: inline-block;
+    position: relative;
+    border: 3px solid white;
+    box-shadow: -0.5vmin 0.5vmin 0 rgba(255, 255, 255, 0.5);
+    background: transparent;
+    margin-top: 5vmin;
+    mix-blend-mode: lighten;
+    color: white;
+    padding: 2vmin 2vmin 1.8vmin 2vmin;
+    letter-spacing: 0.1em;
+    text-shadow: none;
+    line-height: 1;
+    transform: translate3d(0.5vmin, -0.5vmin, 0);
+    transition: all 100ms linear;
+}
+.button:hover {
+    transform: translate3d(1vmin, -1vmin, 0);
+    box-shadow: -1vmin 1vmin 0 rgba(255, 255, 255, 0.5);
+    background: white;
+    color: black;
+}
+.button:active {
+    transform: translate3d(0px, 0px, 0);
+    box-shadow: 0px 0px 0 rgba(255, 255, 255, 0.5);
+}
